@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<!--
+    Опишите и добавьте к стандартному классу объект, метод геттер/сеттер. Если мы передаем 2 аргумента при вызове метода, то он работает как сеттер, если передаем 1, то как геттер.
+    Метод может работать как с локальными(приватные и защищенные) так и публичными свойствами, только локальные(приватные) свойства и доступны только на чтение. 
+-->
+
+</head>
+<body>
+    <script>
+       
+        function StandartObject (data1, data2) {
+
+             this.get = function () {
+                return this.model = data1;
+            };
+            
+            this.set = function() {
+                if(data1 != undefined && data2 != undefined) {
+                    this.model = data1;
+                    this.color = data2;
+                    document.write(this.model + "<br>");
+                    document.write(this.color + "<br>");
+                }
+                else {
+                    this.get();
+                    document.write(this.model + "<br>");
+                }
+            };
+       
+        };
+    
+        var car2 = new StandartObject("BMW", "black");
+        car2.set();
+        
+        var car3 = new StandartObject("Tavriya");
+        car3.set();
+/* На этой счастливой ноте отправляю работу с полным пониманием, что это неправильно */
+        
+    </script>
+    
+    
+</body>
+</html>

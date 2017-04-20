@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 50px 0 0 0;
+            margin: 0;
+        }
+        .wrap {
+            width: 960px;
+            margin: 0 auto;
+        }
+        .section {
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        .section:nth-child(even) {
+            background-color: grey;
+        }
+        .menu {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 0 5px black;
+        }
+        .menu li {
+            display: inline-block;
+            border-bottom: 2px solid transparent;
+        }
+        .menu li.active {
+            border-bottom: 2px solid red;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <li><a href="#box1" class="menu-item">box 1</a></li>
+            <li><a href="#box2" class="menu-item">box 2</a></li>
+            <li><a href="#box3" class="menu-item">box 3</a></li>
+            <li><a href="#box4" class="menu-item">box 4</a></li>
+            <li><a href="#box5" class="menu-item">box 5</a></li>
+        </ul>
+    </div>
+    <div class="wrap">
+    <div class="section" id="box1">
+        <h2>box 1</h2>
+    </div>
+    <div class="section" id="box2">
+        <h2>box 2</h2>
+    </div>
+    <div class="section" id="box3">
+        <h2>box 3</h2>
+    </div>
+    <div class="section" id="box4">
+        <h2>box 4</h2>
+    </div>
+    <div class="section" id="box5">
+        <h2>box 5</h2>
+    </div>
+    </div>
+    
+    <script>
+        var timer;
+        function scrollTo(e) {
+            if(e.target.classList.contains("menu-item")) {
+                e.preventDefault();
+                var canScroll = true;
+                if(timer !== underfined) {
+                    clearTimeout(timer);
+                }
+                var id = e.target.getAttribute("href").substr(1);
+                var scrollElement = document.getElementById(id);
+//                var coordY = scrollElement.offsetTop;
+                var coords = scrollElement.getBoundingClientRect();
+                var coordY = coords.top;
+//                var t = document.body.scrollTop;
+//                var counter = 0;
+                
+//                if(canScroll) {
+//                    canScroll = false;
+            
+                var timer = setInterval(function(){
+                    if(coordY > document.body.scrollTop){
+                        document.body.scrollTop += 10;
+                        if(document.body.scrollTop >= coordY || document.body.scrollTop == document.body.scrollHeight) {
+                            clearInterval(timer);
+                        }
+                    }
+                    if(coordY < document.body.scrollTop){
+                        document.body.scrollTop -= 10;
+                        if(document.body.scrollTop <= coordY) {
+                            clearTimeout(timer);
+                        }
+                    }
+                    
+                }, 10);
+            }
+                document.body.scrollTop = coordY;
+            }
+        }
+        
+        var menu = document.getElementsByClassName("menu")[0];
+        menu.addEventListener("click", scrollTo);
+        
+//        var t = setInterval(func, time); //Запускает бесконечное количество раз до приказа отказа
+//        var t = setTimeout (func, time); //Запускает функцию один раз
+//        
+//        clearTimeout(t);
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        input {
+            border: solid 2px black;
+        }
+        .err {
+            border: solid 2px red;
+        }
+        .succ {
+            border: solid 2px green;
+        }
+    </style>
+</head>
+<body>
+     <h3> Задание 5</h3> <!-- РАБОТАЕТ-->
+    
+<!--    У вас есть 2 инпута для ввода пароля и кнопка, ваша задача, после нажатия на кнопку, проверять соответсвие введнных данных. В случае ошибки, выведите сообщение, и сделайте бордер у инпутов красным, при успешном вводе, также выводите сообщение, и бордер сделайте зеленым-->
+    
+    <input class="five" type="password">
+    <input class="five" type="password">
+    <button class="btn">Click</button>
+    <script>
+        function checkContent () {
+            var input = document.getElementsByClassName("five");
+            for (var i = 0; i < input.length; i++) {
+                if (input[i].classList.contains("succ")) {
+                    input[i].classList.remove("succ");
+                }
+                if (input[i].classList.contains("err")) {
+                    input[i].classList.remove("err");
+                }
+            }
+            if (input[0].value == input[1].value) {
+                input[0].classList.add("succ");
+                input[1].classList.add("succ");
+            }
+            else {
+                input[0].classList.add("err");
+                input[1].classList.add("err");
+                 }
+        }
+        window.onload = function() {
+            document.getElementsByClassName("btn")[0].addEventListener("click", checkContent);
+        }
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+.wrapper{
+	border: 1px solid black;
+	width: 600px;
+	font-size: 0;
+}
+.pic{
+	display: inline-block;
+	width:150px;
+	height: 150px;
+	padding: 5px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.pic > img{
+	width: 100%;
+}
+.fancybox-wrap{
+/*	display: none;*/
+	background: rgba(0,0,0,0.8);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 0;
+	width: 0;
+}
+.fancybox-wrap.active{
+/*	display: block;*/
+    height: 100%;
+	width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.fancybox-pic-wrap{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.fancybox-pic{}
+.fancybox-close-btn{
+	position: absolute;
+	top: -10px;
+	right: -10px; 
+}

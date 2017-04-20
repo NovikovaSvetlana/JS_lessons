@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /* var a, b, operator, result;
+        a = +prompt("Введите первое значение ");
+        b = +prompt("Введите второе значение ");
+        operator = prompt("Введите действие (+, -, *,/) ");
+        
+        switch(operator) {
+            case "+":
+                result = a + b;
+                break;
+            case "-":
+                result = a - b;
+                break;
+            case "*":
+                result = a * b;
+                break;
+            case "/":
+                result = a / b;
+                break;
+            default:
+                result = "Не верный оператор"
+                break;
+        }
+        
+        alert(result);*/
+        
+        var action = {
+            "-": function(n1, n2){
+                return n1 - n2;
+            },
+            "+": function(n1, n2){
+                return n1 + n2;
+            },
+            "*": function(n1, n2){
+                return n1 * n2;
+            },
+            "/": function(n1, n2){
+                return n1 / n2;
+            }
+        };
+        
+        function getDataFromUser(message) {
+            return prompt(message);
+        };
+        
+        function isNumber(n) {
+            n = +n;
+            if(isNaN(n)) {
+                return false;
+            }
+            return true;
+        };
+        
+        function calcThis() {
+            var a = +getDataFromUser("Введите первое число ");
+            var b = +getDataFromUser("Введите второе число ");
+            var operator = getDataFromUser("Введите математическое действие из определенных: *, /, +, -");
+            
+            if(isNumber(a) && isNumber(b)) {
+                if(operator in action) {
+                    return action[operator](a, b);
+                }
+                else {
+                document.write("неверный оператор" + "<br>");
+                }
+            }
+            else {
+                document.write("Вы ввели не число" + "<br>");
+                return false;
+            }
+            
+        }
+        
+        document.write(calcThis());    
+        
+    </script>
+</body>
+</html>

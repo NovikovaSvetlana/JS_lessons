@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<!--    <script src="categories (1).js"></script>-->
+<!--
+    Используя код с пары (рекурсия и категории), выведите категории в документ. Пример вывода
+- root
+-- category 1
+---category 1.1
+-- category 2 
+-->
+
+</head>
+<body>
+    <script>
+    var categories = [
+	{
+		'id' : 8,
+		'title' : "Category 2.1",
+		'parent_id' : 3
+	},
+	{
+		'id' : 1,
+		'title' : "root",
+		'parent_id' : null
+	},
+	{
+		'id' : 6,
+		'title' : "Category 1.1.1",
+		'parent_id' : 5
+	},
+	{
+		'id' : 11,
+		'title' : "Category 3.1",
+		'parent_id' : 4
+	},
+	{
+		'id' : 2,
+		'title' : "Category 1",
+		'parent_id' : 1
+	},
+	{
+		'id' : 5,
+		'title' : "Category 1.1",
+		'parent_id' : 2
+	},
+	{
+		'id' : 9,
+		'title' : "Category 2.2",
+		'parent_id' : 3
+	},
+	{
+		'id' : 3,
+		'title' : "Category 2",
+		'parent_id' : 1
+	},
+	{
+		'id' : 7,
+		'title' : "Category 1.1.2",
+		'parent_id' : 5
+	},
+	
+	
+	{
+		'id' : 10,
+		'title' : "Category 2.2.1",
+		'parent_id' : 9
+	},
+	
+	{
+		'id' : 4,
+		'title' : "Category 3",
+		'parent_id' : 1
+	},
+];
+    function getBackspace(n) {
+        var text = "";
+        for(var i = 0; i < n; i++) {
+            text = text + "-"; 
+        }
+        return text;
+    }
+        
+    function getList(mark, counter, backspace, q) {
+        if(counter === undefined || mark === undefined) {
+            for(var i = 0; i < categories.length; i++) {
+                if(categories[i].parent_id == null) {
+                    var k = 0;
+                    var q = 2;
+                    var backspace = "-";
+                    document.write(backspace + categories[i].title + "<br>");
+                    mark = categories[i].id;
+                    counter = 1;
+                    backspace += "-";
+                }
+            }
+        }       
+        
+        for(var j = 0; j <categories.length; j++) {
+            if(categories[j].parent_id == mark) {
+                document.write(getBackspace(q) + categories[j].title + "<br>");
+                getList(categories[j].id, counter, getBackspace(q++), q); 
+                q--;
+            }
+        }
+       
+        return "";
+    }
+    getList();
+        
+        
+    </script>
+</body>
+</html>

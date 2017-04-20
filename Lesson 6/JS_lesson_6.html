@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    var student = {
+        "name": "Alex Poseda",
+        "age": 35,
+        "email": "poseda@itstep.org"
+        
+    };
+    document.write(student.name + "<br>");
+   
+        
+        
+    var prop = prompt("Enter some prop");
+       if (prop in student)
+        
+    /*if(student[prop] !== undefined)*/ {
+            document.write(prop + " student is: " + student[prop] + "<br>");
+        }
+        else {
+            document.write("Property ["+prop+"] not found");
+        }
+        
+    </script>
+    
+</body>
+</html>

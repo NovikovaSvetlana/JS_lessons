@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<!--
+    Добавьте к стандартному объекту метод для клонирования, метод должен возвращать новый объект, в который склонирован текущий
+-->
+</head>
+<body>
+   <script>
+       var car1 = {
+            "model": "Skoda",
+            "engineVolume": 1.6,
+            "color": "red"
+            
+        };
+       
+       var clon = Object.assign({}, car1);
+       
+       document.write("<b> Выводим данные первоначального объекта </b>" + "<br>");
+       
+       for(key in car1) {
+           document.write(key + ": " + car1[key] + "<br>");
+       }
+       
+      
+       document.write("<b> Выводим данные клонированного объекта </b>" + "<br>");
+       for(key in clon) {
+           document.write(key + ": " + clon[key] + "<br>");
+       }
+       
+       document.write("<b> Проверяем копия или клон. Заменим модель автомобиля. </b>" + "<br>");
+       
+       clon.model = "BMW";
+       for(key in clon) {
+           document.write(key + ": " + clon[key] + "<br>");
+       }
+       
+        
+    
+    </script>
+    
+</body>
+</html>

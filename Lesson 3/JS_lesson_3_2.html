@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var number, input;
+        var repeat = true;
+        var maxTryCount = 3;
+        
+        while(repeat) {
+            number = Math.round(Math.random() * 100);
+            console.log("Random number " + number);
+                     
+            for(var tryCount = 0; tryCount < maxTryCount; tryCount++) {
+                input = prompt("Введите число ");
+                if(input == number) {
+                    alert("Ура! Вы угадали!");
+                    break;
+                }
+                    else if(input > number) {
+                        alert("Ваше значение больше");
+                    }
+                     else if(input < number) {
+                        alert("Ваше значение меньше");
+                    }
+                else {
+                     alert("Неверный ввод");
+                }
+                    
+            }
+            
+            //input = prompt("Вы хотите продолжить? (y/n)");
+            //repeat = input == "y" ? true : false;
+            repeat = 'y' == prompt("Вы хотите продолжить? (y/n)");
+        }
+    </script>
+</body>
+</html>

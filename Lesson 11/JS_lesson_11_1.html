@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Прототип</title>
+</head>
+<body>
+    <script>
+        var animal = {
+            type: "animal",
+            canJump: true
+        };
+        
+        var rabbit = {
+            name: "Rodger",
+            age: 4
+        };
+        
+        rabbit.__proto__ = animal;
+        
+        document.write(rabbit.type + "<br>");
+        
+        for(var p in rabbit) {
+            document.write("Key " + p + " | value " + rabbit[p] + "<br>");
+        };
+        
+        for(var prop in rabbit) {
+            if(rabbit.hasOwnProperty(prop)) {
+              document.write("Key " + prop + " | value " + rabbit[prop] + "<br>");  
+            }
+        };
+        
+        Array.prototype.myProperty = 20;
+        Array.prototype.inArray = function(value) {
+            for(var i= 0; i<this.length; i++) {
+                if(this[i] == value) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        var arr = [1, 2, 3];
+        
+        document.write(arr.inArray(20) + "<br>");
+        document.write(arr.inArray(3) + "<br>");
+    
+    
+    
+    
+    </script>
+</body>
+</html>

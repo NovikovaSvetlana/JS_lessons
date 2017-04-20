@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<!--    <script src="object_students.js"></script>-->
+</head>
+<body>
+<!--    Вам необходимо создать объект студент, со свойствами: имя, фамилия, группа, возраст, email и телефон. Также объект должен содержать 2 метода которые будут возвращать следующие данные: имя и фамилию и возраст, email и телефон и группу. Результат работы методов выведите в консоль-->
+    <script>
+        var person = 
+            { 
+                group: "WEBSEO20",
+                name : "Svetlana",
+                sname: "Novikova",
+                phone: ["067-902-44-01", "067-220-75-13"], 
+                age: 40, 
+                email: "s-novikova@mail.ru",
+           
+    getData1: function() {
+    getDataNameSnameAge(this);
+    },
+    
+    getData2: function() {
+    getEmailPhone(this);
+    }
+            }
+    
+        function getDataNameSnameAge(request) {
+            return document.write(request.name + " " + request.sname + "<br>" + "Возраст: " + request.age + "<br>");
+        };
+        function getEmailPhone(request) {
+            return document.write("Электронный ящик: " + request.email + "<br>" + "Контактные телефоны: " + request.phone + "<br>");
+        };
+    
+//    getDataNameSnameAge(person);
+//    getEmailPhone(person);
+    
+        /* НЕ РАБОТАЕТ МАССИВ С ДАННЫМИ ПО НЕСКОЛЬКИМ СТУДЕНТАМ*/
+        var personMany = [
+            { 
+                group: "WEBSEO20",
+                name : "Svetlana",
+                sname: "Novikova",
+                phone: ["067-902-44-01", "067-220-75-13"], 
+                age: 40, 
+                email: "s-novikova@mail.ru"
+            },
+            
+            {
+                group: "WEBSEO19", 
+                name: "Arcadiy", 
+                sname: "Ukupnik",
+                phone: ["067-750-47-19", "050-495-67-89"], 
+                age: 36,
+                email: "ukupnik@mail.ru"
+            },
+            {
+                group: "WEBSEO20", 
+                name:"Ivan", 
+                sname: "Dorn",
+                phone: ["067-469-58-63", "063-652-75-+16"], 
+                age: 24,
+                email: "dorn@mail.ru"
+            },
+            {
+                group: "WEBSEO20",
+                name: "Evgeniy", 
+                sname: "Komarovskiy",
+                phone: ["063-589-64-25", "096-568-59-62"], 
+                age: 22,
+                email: "komarovskiy@mail.ru"
+            },
+            {
+                group: "WEBSEO19", 
+                name: "Michail",
+                sname: "Boyarskiy",
+                phone: ["044-462-85-96", "063-236-48-95"], 
+                age: 15,
+                email: "boyarskiy@mail.ru"
+            },
+            {   getData3: function() {
+                    for(var i = 0; i < personMany.length - 2; i++) {
+                        getDataNameSnameAge(this[i]);
+                    }
+                },
+            },
+        
+            {    getData4: function() {
+                    for(var i = 0; i < personMany.length - 2; i++) {
+                    getEmailPhone(this[i]);
+                    }
+                },
+            }
+        ]
+        
+        getDataNameSnameAge(personMany[4]);
+        
+/* Как ввести правильно методы в массив с данными по нескольким студентам? */
+        
+    </script>
+</body>
+</html>

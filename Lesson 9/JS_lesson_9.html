@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="categories (1).js"></script>
+</head>
+<body>
+    <script>
+    
+    function getChildren(parent_id) {
+        var children = [];
+        for(var i = 0; i < categories.length; i++) {
+            if(categories[i].parent_id == parent_id) {
+                children.push({
+                    'title' : categories[i].title,
+                    'children' : getChildren(categories[i].id)
+                });
+            }
+        }
+        
+        return children;
+    }
+    
+    var newCategories = [];
+        for (var i = 0; i < categories.length; i++) {
+            if(categories[i].parent_id == null) {
+                newCategories.push({
+                    'title' : categories[i].title,
+                    'children' : getChildren(categories[i].id)
+                });
+            }
+        }
+        
+        console.log(newCategories);
+    </script>
+</body>
+</html>

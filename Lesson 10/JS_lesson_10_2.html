@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<!--
+    Опишите объект изображением, со свойствами: путь к изображению, дотспные размеры, описание изображения. Методы:
+    1. Метод должен возвращать все доступные размеры изображений
+    2. Метод должен возвращать переданный аргументом размер
+    3. Метод должен возвращать описание в сиде строки "alt = "Черный""
+    Изначально может быть 2 набора размеров! 
+-->
+</head>
+<body>
+    <script>
+        function Picture(src, alt, size1, size2, size3) {
+            this.getSize = function() {
+                if (size1 == undefined && size2 == undefined && size3 == undefined) {
+                    document.write("Размеры картинки не определены");
+                }
+                document.write("Данная картинка доступна в размерах: " + "<br>");
+                if(size1 != undefined) {
+                document.write(size1 + "<br>");
+                }
+                if(size2 != undefined) {
+                document.write(size2 + "<br>");
+                }
+                if(size3 != undefined) {
+                document.write(size3 + "<br>");
+                }
+            }
+            this.getAlt = function() {
+                document.write("Описание Изображения: " + alt + "<br>");
+            }
+            this.getSizeAll = function() {
+                /** Не совсем поняла чем задание 1 отличается от задания 2. Агрумент - это то, что мы передаем с функцией, т.е. в момем случае "small".
+                В методе getSize я уже передаю все доступные размеры аргумента*/
+            }
+        }
+    
+    var pict = new Picture("http://telegraf.com.ua/files/2016/11/cat.jpg", "Глаза", "small");
+        pict.getAlt();
+        pict.getSize();
+    
+    var pict1 = new Picture("http://telegraf.com.ua/files/2016/11/cat.jpg", "Глаза", "small", "big");
+        pict1.getAlt();
+        pict1.getSize();
+        
+    </script>
+</body>
+</html>

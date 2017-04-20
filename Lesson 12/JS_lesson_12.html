@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .one {
+            background: green;
+        }
+        .two {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+   <ul id="list">
+       <li>item1</li>
+       <li>item2</li>
+       <li>item3</li>
+       <li>item4</li>
+       <li>item5</li>
+       <li>item6</li>
+       <li>item7</li>
+       <li>item8</li>
+   </ul>
+   <div class="one">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus sit soluta laborum unde libero praesentium, repellat suscipit in, consectetur aliquam illo quasi et ad cupiditate accusamus voluptates, quas rem cumque?</div>
+   <p id="one">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus tempora quisquam amet, dolorem accusamus quidem repudiandae asperiores accusantium deleniti soluta corporis, assumenda eveniet laboriosam exercitationem et numquam reiciendis non odit!</p>
+   <script>
+       var ul = document.getElementById("list");
+       var allli = ul.getElementsByTagName("li");
+       console.log(allli);
+       var li = ul.removeChild(allli[2]);
+        console.log(allli);
+       
+       var allli = ul.querySelectorAll("li");
+       console.log(allli);
+       var li = ul.removeChild(allli[2]);
+        console.log(allli);
+       
+       
+    </script>
+</body>
+</html>

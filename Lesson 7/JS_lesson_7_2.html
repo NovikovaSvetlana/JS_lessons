@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Таблица умножения</title>
+</head>
+<body>
+    <script>
+        function getDataFromUser(message) {
+            return prompt(message);
+        };
+        
+        function table() {
+            var a = 7 /*getDataFromUser("Введите с какого таблица умножения с какого числа выводить таблицу умножения");*/
+            var b = 9 /*getDataFromUser("Введите до какого числа выводить твблицу умножения");*/
+            for (var j = a; j < b; j++) {
+                var string = "";
+                for (var i = a; i < b; i++) {
+                    string += j*i;
+                }
+                document.write(string);
+            }
+        };
+    
+    </script>
+</body>
+</html>

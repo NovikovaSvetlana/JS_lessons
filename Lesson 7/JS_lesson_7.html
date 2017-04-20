@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function</title>
+</head>
+<body>
+    <script>
+        
+        var name = "Alex";
+        function Fun1(param) {
+            document.write(param + name + "<br>");
+        };
+        Fun1("Hello ");
+        
+        function Fun2(n1, n2, message) {
+            var summ = n1 + n2;
+            document.write(message + " " + summ + "<br>");
+        }
+        Fun2(15, 17, "Я люблю тебя жизнь"); 
+        
+        function isNumber(n) {
+            n = +n;
+            if(isNaN(n)) {
+                return false;
+            }
+            return true;
+        }
+        
+        var number = prompt("Введите число");
+        document.write(isNumber(number));
+        
+        var a = 3;
+        function MyFun() {
+            return a * 3;
+        }
+        document.write(MyFun(a) + "<br>");
+        
+        var f = 3;
+        function MyFun2() {
+            var f = 5;
+            return function() {
+                document.write(MyFun2(f) + "<br>");
+            }
+        }
+        
+        function sayOK() {
+            alert("ok");
+        }
+        function sayNeOk() {
+            alert("ne Ok");
+        }
+        
+        function checkAccess (age, ok, ne_ok) {
+            if(age>18) {
+                ok();
+            }
+            else {
+                ne_ok();
+            }
+        }
+        var age = prompt();
+        checkAccess(age, sayOK, sayNeOk);
+        /** Правило написания комментарий
+        *@param number age
+        *@param function ok
+        */
+        
+        
+        
+    </script>
+</body>
+</html>

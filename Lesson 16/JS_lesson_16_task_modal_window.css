@@ -1,0 +1,61 @@
+.main {
+    margin: 0 auto;
+    display: block;
+    width: 960px;
+    height: 600px;
+    background-color: bisque;
+    border: 1px solid brown;
+}
+.item {
+    display: inline-block;
+    width: 300px;
+    height: auto;
+    margin: 5px;
+    padding-bottom: 20px;
+    border: 1px solid brown;
+    
+}
+.item  img {
+    width: 295px;
+    height: 400px;
+    background-size: contain;
+    overflow: hidden;
+    margin-left: -35px;
+}
+figcaption {
+    text-align: center;
+    font-size: 2em;
+}
+.info {
+    padding: 20px 30px;
+    border-radius: 10px;
+    margin: 0 50px;
+    background-color: coral;
+    font-size: 1.5em;
+    color: maroon;
+    width: 200px;
+}
+.modal {
+    margin: -600px auto;
+    width: 600px;
+    display: none;
+    height: auto;
+    border: 1px solid brown;
+   
+}
+.modal img {
+    margin: 25px;
+    width: 550px;
+    height: 400px;
+    background-size: contain;
+    overflow: hidden;
+}
+.info-box {
+    display: block;
+    border-top: 1px solid brown;
+    border-bottom: 1px solid brown;
+}
+.close-btn {
+	position: relative;
+    margin: 20px 30%;
+}

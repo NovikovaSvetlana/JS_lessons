@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        input {
+            border: solid 2px black;
+        }
+        .err {
+            border: solid 2px red;
+        }
+        .succ {
+            border: solid 2px green;
+        }
+    </style>
+</head>
+<body>
+<!--    У Вас есть список, каждый элемент списка содержит 2 кнопки: prev и next. При нажатии на соответствующую кнопку вам необходимо удалять предыдущего/следующего соседа-->
+
+<ul>
+    <li>
+       <button class="prev">Prev1</button>
+       <button class="next">Next1</button>
+    </li>
+    <li>
+       <button class="prev">Prev2</button>
+       <button class="next">Next2</button>
+    </li>
+    <li>
+       <button class="prev">Prev3</button>
+       <button class="next">Next3</button>
+    </li>   
+</ul>
+
+<!--У Вас есть 2 инпута для ввода пароля и кнопка, ваша задача, после нажатия на кнопку, проверять соотвествие введенных данных.В случае ошибки, выведите сообщение, и сделайте бордер у инпутов красным, при успешном вводе, также выведите сообщение, и бордер сделайте зеленым-->
+
+
+    <input type="password">
+    <input type="password">
+    <button class="btn">Click</button>
+    <script>
+        function checkContent () {
+            var content = "true";
+            var input = document.getElementsByTagName("input");
+            if (input[0].value == input[1].value) {
+                input[0].classList.add("succ");
+                input[1].classList.add("succ");
+            }
+            else {
+                input[0].classList.add("err");
+                input[1].classList.add("err");
+                 }
+        }
+        window.onload = function() {
+            document.getElementsByClassName("btn")[0].addEventListener("click", checkContent);
+        }
+    
+    </script>
+    
+
+<h4> Изменение задачи</h4>
+
+<!--
+    У Вас есть input type=password, ваша задача, реализовать кнопку, при нажатии(и удержании)
+ которой, пользователь увидит введенные символы, при отпускании кнопки, символы должны быть скрыты
+-->
+
+<input type="password">
+<button id="specialButton">Click</button>
+
+    <script>
+        var buttons = document.getElementsById("specialButton")
+        function mouseTrick() {
+            var inp = this.previousElementSibling;
+            inp.setAttribute("type", "text");
+            inp.type = "text";
+            
+        }
+        
+        window.onload = function() {
+            document.getElementById("specialButton").addEventListener("")
+        }
+
+    </script>
+
+
+</body>
+</html>

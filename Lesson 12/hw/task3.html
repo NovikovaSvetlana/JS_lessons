@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.row:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.col{
+			float: left;
+			border: 1px solid black;
+			height: 50px;
+		}
+		.m1{
+			width: 50px;
+		}
+		.m2{
+			width: 100px;
+		}
+		.m3{
+			width: 120px;
+		}
+		.m4{
+			width: 150px;
+		}
+		.m5{
+			width: 200px;
+		}
+		.red{
+			background: red;
+		}
+		.green{
+			background: green;
+		}
+		.blue{
+			background: blue;
+		}
+		.yellow{
+			background: yellow;
+		}
+		.orange{
+			background: orange;
+		}
+	</style>
+	<!-- 
+		1. Найдите все комментарии в body, и вставте вместо них div с указанным в коментарии классом
+		2. Добавьте ко всем элементам с классом col атрибут id содержашим element-{число, порядковый номер элеента}
+		3. Спросите у пользователя ид элемента и поменяйте его местами с его предыдушим соседом, если предыдущий сосед не найден, с последним элементом
+	 -->
+</head>
+<body>
+	<div class="row">
+		<div class="col m1 red"></div>
+		<div class="col m2 green"></div>
+		<!-- col m1 orange -->
+		<div class="col m3 blue"></div>
+		<div class="col m4 yellow"></div>
+		<!-- col m3 green -->
+		<div class="col m5 orange"></div>
+		<!-- col m3 red -->
+	</div>
+	
+	<script>
+//        1. Найдите все комментарии в body, и вставте вместо них div с указанным в коментарии классом
+        /* Не поняла, как пересчтать комментарии*/
+        function changeComments() {
+            var divRow = document.getElementsByClassName("row");
+            var allComments = divRow.getComments;
+        }
+//    2. Добавьте ко всем элементам с классом col атрибут id содержашим element-{число, порядковый номер элеента} - РАБОТАЕТ
+        
+        function addContent() {
+            var allCol = document.getElementsByClassName("col");
+            for (var i = 0; i < allCol.length; i++) {           document.getElementsByClassName("col")[i].setAttribute("id", i);  
+            }
+        };
+        
+//        3. Спросите у пользователя ид элемента и поменяйте его местами с его предыдушим соседом, если предыдущий сосед не найден, с последним элементом
+//        
+        /* метод insertBefore не рабоатет, по частям проверила элементы находятся, а как поменять местами не поняла */
+        function changeOrderById(n) {
+            var div = document.getElementsByClassName("col");
+            var allId = document.getElementById("n");
+            var n1 = n - 1;
+            var allIdPrevious = document.getElementById("n1");
+            div.insertBefore(allId, allIdPrevious); 
+            
+        };
+        
+    </script>
+	
+	
+</body>
+</html>

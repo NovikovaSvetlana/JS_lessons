@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h3> Задание 4</h3> <!-- РАБОТАЕТ-->
+    
+<!--    У вас есть форма, для ввода персональных данных. Поля формы: имя, телефон, email, адрес. Так как у пользователя может быть несколько телефонов, email ов и адресов, вам необходимо добавить кнопки еще один телефон/email/адрес. При нажатии на кнопку, вам необходимо добавлять поле. -->
+   
+    <div class="fourTask">
+        <input class="four" type="text"> <br>
+        <input class="four" type="tel"> <button class="more">Телефон +</button> <br>
+        <input class="four" type="email"> <button class="more">Email +</button> <br>
+        <input class="four" type="address"> <button class="more">Address +</button> <br>
+    </div>
+    <script>
+        function addData() {
+            var divFourTask = document.getElementsByClassName("fourTask")[0];
+            var textMessage = document.createElement("p");
+            divFourTask.appendChild(textMessage);
+            if (this.previousElementSibling.type == "text") {
+                 textMessage.innerHTML = "Ведите дополнительный адрес";
+            }
+            else {
+                textMessage.innerHTML = "Ведите дополнительный " + this.previousElementSibling.type;
+            }
+            var newInput = document.createElement("input");
+            newInput.class = this.previousElementSibling.className;
+            newInput.type = this.previousElementSibling.nodeType;
+            divFourTask.appendChild(newInput);
+           
+        };
+        
+        window.onload = function() {
+            var btnMore = document.getElementsByClassName("more");
+            for (var i = 0; i < btnMore.length; i++) {
+                btnMore[i].addEventListener("click", addData);
+            }
+        };
+    
+    </script>
+</body>
+</html>

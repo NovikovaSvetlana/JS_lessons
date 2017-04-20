@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<!--    Напишите функцию, которая в качестве аргумента будет принимать объект, и выводить в консоль все его свойства. Вызовите функцию, передав объект студент в качестве аргумента.-->
+    
+</head>
+<body>
+    
+    <script>
+        var student = 
+            { 
+                group: "WEBSEO20",
+                name : "Svetlana",
+                sname: "Novikova",
+                phone: ["067-902-44-01", "067-220-75-13"], 
+                age: 40, 
+                email: "s-novikova@mail.ru"
+            }
+        
+        function getStudent (object) {
+            for(key in object) {
+                document.write(key + ":" + object[key] + "<br>");
+            }   
+        };
+        
+        getStudent(student);
+    
+    
+    </script>
+</body>
+</html>

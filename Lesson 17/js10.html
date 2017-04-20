@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js10</title>
+    <style>
+        div {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+   <div id="one"></div>
+   <div></div>
+    <button id="btn">Click</button>
+    <output id='out' style="border: 1px solid red;"></output>
+    <script>
+    function handler(evt){
+//        evt.type - отслеживание чего-либо 
+//        evt.currentTarget - элемент на котором произошло событие
+//        evt.altKey        ------------для спец кнопок
+//        evt.shiftKey      ------------для спец кнопок
+//        evt.metaKey (для маков) ------для спец кнопок
+//        evt.ctrlKey        ----------- для спец кнопок
+//        evt.clientX -- координаты клика события внутри элемента
+//        evt.clientY -- координаты клика события внутри элемента
+        
+//        handler.call(document.getElementById('btn'), event);
+//        .call(context [,param1, param2, ...]);
+        
+//        if(evt.type == 'click' && evt.altKey && evt.ctrlKey){
+//            document.write('ok');
+//        }
+//        out.innerHTML = evt.clientX;
+//        out.innerHTML = evt.button;
+//        out.innerHTML = evt.pageX;
+//        out.innerHTML = evt.pageY;
+//        out.innerHTML = evt.clientY;
+//        out.innerHTML = evt.clientX;
+//        out.innerHTML = evt.relatedTarget.tagName;
+        
+//        console.log(evt);
+        console.log(String.fromCharCode(evt.charCode));
+//        out.innerHTML = evt.charCode; 
+//        -возвр код в ut8
+        
+        
+        
+    }
+
+        
+        var out = document.getElementById('out');
+        document.body.addEventListener('keyup', handler);
+//        document.getElementById('one').addEventListener('mouseenter', handler);
+        
+    </script>
+</body>
+</html>

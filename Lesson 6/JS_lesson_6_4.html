@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var arr = {
+        name: "Svetlana",
+        phone: ["067-902-4401", "067-220-7513"],
+        email: "s-novikova@mail.ru",
+        age: 40
+    }
+    var cmp = prompt("Укажите необходимую информацию");
+        if(cmp in arr) {
+             document.write(cmp + " student is: " + arr[cmp] + "<br>");
+        }
+        else {
+            document.write("Property ["+cmp+"] not found" + "<br>");
+        }
+    
+    document.write("Привет, меня зовут "+arr.name+"! Мне "+arr.age+" лет.");
+    </script>
+</body>
+</html>

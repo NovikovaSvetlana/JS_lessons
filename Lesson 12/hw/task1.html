@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+        h2 {
+            color: red;
+        }
+        span {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+	<!-- 
+		1. Опишите функцию, которая будет получать от пользователя строку, и будет заменять текст внутри элементов с тегом span на введенный пользователем
+
+		2. Опишите функцию которая удалит все элементы em со страницы
+		3. Опишите функцию которая добавит еще один точно такой же див, какой у вас сейчас на странице, добавит а нему в начало заголовок h2 с текстом "я склонирован", и вставит перед существующим div
+
+		Обратите внимание, все функции должны вызываться из консоли!
+	 -->
+
+	 <div>
+	 	<p>Lorem ipsum dolor <span>sit amet</span>, consectetur adipisicing elit. <em>Laboriosam</em> dolores quidem mollitia id ipsa nisi necessitatibus iure <span>repudiandae</span> aperiam, odit ipsam dolor fugiat corporis nesciunt illo nemo minus ratione blanditiis.</p>
+	 	<p>Lorem <span>ipsum</span> dolor sit amet, consectetur <em>adipisicing elit</em>. Laboriosam dolores quidem mollitia id ipsa nisi neces<span>sitatibus iure repud</span>iandae aperiam, odit ipsam dolor fugiat corporis nesciunt illo nemo minus ratione <em>blanditiis</em>.</p>
+	 </div>
+	 
+	 <script>
+//         1. Опишите функцию, которая будет получать от пользователя строку, и будет заменять текст внутри элементов с тегом span на введенный пользователем
+
+         function changeSpan() {
+             var text = prompt("Введите строку замены");
+             var spanQuantity = document.getElementsByTagName("span").length;
+             for (var i = 0; i < spanQuantity; i++) {
+                 document.getElementsByTagName("span")[i].innerHTML = text;
+             }
+         };
+         
+//         2. Опишите функцию которая удалит все элементы em со страницы
+         
+         function deleteEm() {
+             
+             var emQuantity = document.getElementsByTagName("em").length;
+             for(var i= 0; i < emQuantity; i++) {
+                document.getElementsByTagName("em")[i].innerHTML = null;
+             }
+         };
+             
+//         3. Опишите функцию которая добавит еще один точно такой же див, какой у вас сейчас на странице, добавит а нему в начало заголовок h2 с текстом "я склонирован", и вставит перед существующим div
+         function clonDiv () {
+             var elmnt = document.getElementsByTagName("div")[0];
+             var cln = elmnt.cloneNode(true);
+             var firstBodyElement = document.body.firstChild.nextSibling;
+             
+             document.body.insertBefore(cln, firstBodyElement);
+
+             var h2 = document.createElement("h2");
+
+             var h2Text = document.createTextNode("Я СКЛОНИРОВАН");
+
+             h2.appendChild(h2Text);
+             
+             cln.appendChild(h2);
+// добавляем элемент в блок div перед первым узлом             
+             var firstClnElem = cln.firstChild.nextSibling;
+
+             cln.insertBefore(h2, firstClnElem);
+             
+         };
+   
+    
+
+         
+    </script>
+	 
+</body>
+</html>

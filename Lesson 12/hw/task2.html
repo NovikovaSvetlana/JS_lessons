@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 
+		1. Опишите функцию которая будет удалять элемент из списка. Функция принимает порядковый номер удаляемого элемента.
+		2. Опишите функцию, которая будет добавлять новый элемент в конец списка. Содержимое элемента спросите у пользователя.
+		3. Опишите функцию, которая будет выводить в элемент со значением атрибута id равным counter, количество элементов в списке. Запускайте данную функцию после удаления или добавления элементов в список
+	 -->
+	<ul id="list">
+		<li>item1</li>
+		<li>item2</li>
+		<li>item3</li>
+		<li>item4</li>
+		<li>item5</li>
+	</ul>
+
+	<p id="counter"></p>
+	
+	<script>
+//        1. Опишите функцию которая будет удалять элемент из списка. Функция принимает порядковый номер удаляемого элемента.
+        function deleteElement(n) {
+            var ul = document.getElementById("list");
+            var allli = ul.getElementsByTagName("li");
+            var li = ul.removeChild(allli[n]);
+        };
+//        
+//        2. Опишите функцию, которая будет добавлять новый элемент в конец списка. Содержимое элемента спросите у пользователя.
+        function addElement() {
+            var ul = document.getElementById("list");
+            var allli = ul.getElementsByTagName("li");
+            var newElement = document.createElement("li")
+            newElement.innerHTML = "Item 6";
+            ul.appendChild(newElement);
+        };
+//        3. Опишите функцию, которая будет выводить в элемент со значением атрибута id равным counter, количество элементов в списке. Запускайте данную функцию после удаления или добавления элементов в список
+        function countElements () {
+            var ul = document.getElementById("list");
+            var allli = ul.getElementsByTagName("li"); 
+            var counter = allli.length;
+            document.getElementById("counter").innerHTML = "Всего в списке: " + counter;    
+        }; 
+    
+    </script>
+	
+	
+</body>
+</html>

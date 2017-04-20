@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Множество типовых объектов</title>
+</head>
+<body>
+    <script>
+        function Book(title, author, price) {
+            this.title = title;
+            this.author = author;
+            this.price = price;
+            
+            var self = this;
+            var currency = "$";
+            
+            this.getPrice = function () {
+                return this.price + currency;
+            }
+            
+            function getLink() {
+                return "Book " + self.title + " of author" + self.author;
+            }
+            
+            this.showLink = function() {
+                document.write('<a href="book/'+ this.title +'">'+ getLink() + '</a>');
+            }
+        }
+        
+        var book1 = new Book("JS for students", "Alex", 250);
+        var book2 = new Book("PHP for users", "Alex", 500);
+        
+        document.write(book1.getPrice() + "<br>");
+        document.write(book2.getPrice() + "<br>");
+        book2.showLink();
+        
+        
+        
+    
+    </script>
+</body>
+</html>

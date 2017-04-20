@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operators</title>
+</head>
+<body>
+    <script>
+        var n = 3 + 5;
+        var s = "3" + "5";
+        
+        console.log("3 + 5 = " + n);
+        console.log("\"3\" + \"5\" = " + s);
+        
+        var m = 9;
+        n = m + n;
+        // n += m; //
+        console.log("m + n = " + n);
+        
+        n = n * m;
+        console.log("n * m = " + n);
+        // n *= m; //
+        
+        n = n / m;
+        console.log("n / m = " + n);
+        // n /= m; //
+        
+        var b = n == m;
+        console.log(b);
+        // b присвоили результата сравнения//
+        
+        console.log(n == 17);
+        console.log(n != m);
+        // n не рваен m//
+        
+        console.log(n == "17");
+        // в этом случае строка перейдет в число//
+        
+        console.log(n === "17");
+        console.log(n !== "17");
+        // в этом случае значение остается строчным безе превода в число - сравнение с учетом типа//
+        
+        console.log(0 == true); //0-false//
+        console.log(1 == true); //1-true//
+        console.log(6 == true); //6 сравнивается с true(1)- это неправда (false)//
+        
+        s = "" + n;
+        console.log(n + " (n) is " + typeof n);
+        console.log(s + " (s) is " + typeof s);
+        console.log(+s + " " + typeof n);
+        
+        var x = 10;
+        x++; //x = x + 1;x += 1; increment postfix//
+        ++x; //increment prefix//
+        x--; //x = x - 1;x -= 1; decrement postfix//
+        --x; //decrement prefix//
+        
+        console.log(x);
+        
+        var y = x++; //порядок действий, сначала приравнивание, потом increment x//
+        console.log(y);
+        
+        var y = ++x; // increment + приравнивание//
+        console.log(y);
+        
+        
+        
+    </script>
+</body>
+</html>

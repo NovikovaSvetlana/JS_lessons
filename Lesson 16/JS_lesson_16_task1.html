@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <button class="control" data-action="width">Width</button>
+    <button class="control" data-action="height">Hieght</button>
+    <script>
+    
+        function change(property) {
+            var el = document.getElementById("box");
+            var current = parseFloat(getComputedStyle(el)[property]);
+            if(current < screen["avail" + property.charAt(0).toUpperCase() + property.substr(1)]) {
+                el.style[property] = (current * 2) + "px";
+            }
+            else {
+                el.style[property] = "100px";
+            }
+        }
+        
+        var buttons = document.getElementsByClassName("control");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function() {change(this.dataset.action)});
+        }
+    
+    </script>
+</body>
+</html>

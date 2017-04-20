@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="JS_lesson_16_task2.css">
+</head>
+<body>
+    <div class="main">
+        <div id="mainFoto" class="centr">
+            <img class="bigFoto" src="">
+        </div>
+        <div class="lenta">
+            <div class="pig">
+                <img src="http://relaxic.net/wp-content/uploads/2012/07/nature_00001.jpg">
+            </div>
+            <div class="pig">
+                <img src="http://www.pravda-tv.ru/wp-content/uploads/2014/12/0_2b2c94_ccbef8a4_xxxl.jpg">
+            </div>
+            <div class="pig">
+                <img src="http://gif-kartinki.ru/1/krasivaja-priroda.jpg">
+            </div>
+            <div class="pig">
+                <img src="http://ecofauna.org/files/all/122/natural1.jpg">
+            </div>
+            <div class="pig">
+                <img src="http://mirgif.com/priroda/priroda-67.jpg">
+            </div>
+        </div>
+    </div>
+    <div class="fancybox-wrap" id="fb">
+        <div class="fancybox-pic-wrap">
+            <img src="" class="fancybox-pic" id="fb-pic">
+            <button class="fancybox-close-btn" id="fb-btn">Close</button>
+       </div>
+    
+    <script>
+        
+//        Задание 1. Мини галерея
+//
+//Вам необходимо вывести блок для отображения изображений. При клике на миниатюру добавляем ей бордер и выводим/изображение среднего размера. При клике на большое окно выводим его в виде funcybox (темный фон, изображение по середине)
+
+        function changeMainFoto() {
+            if (counter == 1) {
+                var imges = document.getElementsByTagName("img");
+                    for (var i = 0; i < imges.length; i++) {
+                        imges[i].parentNode.classList.remove("otherColor");
+                    }
+            }
+            var parentDiv = this.parentNode.classList.add("otherColor");
+            var imageModel = this.getAttribute("src");
+            var div = document.getElementById("mainFoto");
+            var imdMain = document.getElementsByClassName("bigFoto")[0];
+            imdMain.setAttribute("src", imageModel);
+            counter = 1;
+        }
+        
+        function showBox() {
+            var src = this.firstElementChild.getAttribute("src");
+            var fb_img_element = document.getElementById("fb-pic");
+            var fb_wrap_element = document.getElementById("fb");
+    
+            fb_img_element.setAttribute("src", src);
+            fb_wrap_element.classList.add("active");
+            fb_wrap_element.style.opacity = 1;
+        }
+
+        function closeBox() {
+            var fb_img_element = document.getElementById("fb-pic");
+            var fb_wrap_element = document.getElementById("fb");
+    
+            fb_img_element.src = "";
+            fb_wrap_element.style.opacity = 0;
+            fb_wrap_element.classList.remove("active");
+        }
+        
+        var counter = 0;
+        var divLenta = document.getElementsByClassName("lenta")[0];
+        var imges = divLenta.getElementsByTagName("img");
+        for (var i = 0; i < imges.length; i++) {
+            imges[i].addEventListener("click", changeMainFoto); 
+        }
+
+        var collection = document.getElementsByClassName("centr")[0];
+        collection.addEventListener("click", showBox);
+        document.getElementById("fb-btn").addEventListener("click", closeBox);
+        
+    </script>
+    
+</body>
+</html>

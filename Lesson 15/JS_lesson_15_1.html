@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .one {
+            background: red;
+            display: block;
+            position: absolute;
+        }
+        
+        .box {
+            width: 50px;
+            height: 50px;
+            border-radius: 250px;
+            border: 5px solid black;
+            padding: 20px;
+            background-color: red;
+            background-clip: content-box;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="one" style="width: 20px; height: 20px;" id="one"></div>
+    <div class="box" style="top: 0; left: 0;" id="elem"></div>
+    <script>
+        function one(w) {
+            var original = parseInt(document.getElementById("one").style.width);
+            document.getElementById("one").style.width = original + w + "px";
+        }
+        
+        function right(l) {
+            var orRight = document.getElementById("one").style.right;
+            document.getElementById("one").style.right = orRight + l +"px";
+        }
+        
+        function left(l) {
+            var orLeft = document.getElementById("one").style.left;
+            document.getElementById("one").style.left = orLeft + l +"px";
+        }
+        
+        function move(offset, property) {
+            var elem = document.getElementById("elem");
+            var oldvalue = parseFloat(elem.style[property]);
+            elem.style[property] = oldvalue + offset + "px";
+        }
+        
+    </script>
+</body>
+</html>

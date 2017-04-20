@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <button data-action="+">+</button>
+    <button data-action="-">-</button>
+    <button data-action="*">*</button>
+    <button data-action="/">/</button>
+    <output id="resultat"></output>
+    
+    <a href="#tab1"></a>
+    
+    <button id="btn">Click</button>
+    <script>
+        function handler(evt){
+            evt.type
+            evt.currentTarget
+            
+//            if(evt.type == "click" && evt.altKey) {
+//                alert("OK");
+//            }
+            
+            
+            
+        }
+        
+        document.getElementById("btn").addEventListener("click", handler);
+        
+//        handler.call(document.getElementById("btn"), Event)
+        
+        var out = document.getElementById("out");
+        document.body.getElementById("out").addEventListener("click", handler);
+        
+    </script>
+    
+</body>
+</html>

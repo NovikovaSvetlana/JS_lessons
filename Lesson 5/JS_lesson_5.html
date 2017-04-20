@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+    
+    <script>
+    
+        var words = ["Hello ", "World", "Yes"];
+        var arr = [];
+        var numbers = [7, 6, 4, 8, 16, 66, 32, 99];
+        
+        
+        //read data from Array
+        document.write(words[0] + "<br>");
+        
+        //update data in array
+        words[1] = "World!!!";
+        words[2] = undefined;
+        
+        document.write(words[1] + "<br>");
+        document.write(words[5] + "<br>");
+        
+        document.write("Array length: " + words.length + "<br>");
+        document.write(words[2] + "<br>");
+        
+        var i = 4;
+        document.write(numbers[i] + "<br>");
+        i++;
+        document.write(numbers[i++] + "<br>");
+        i++;
+        document.write(numbers[i] + "<br>");
+        i++;
+        document.write(numbers[i+4] + "<br>");
+        
+        i = 0;
+        while(i < numbers.length) {
+            document.write(numbers[i] + "<br>");
+            i++;
+        }
+        
+        for(var j = 0; j < numbers.length; j++) {
+            document.write((j + 1) + ". " + numbers[j] + "<br>");
+        }
+        
+        for(i = 0; i < 10; i++) {
+            arr[i] = i + i;
+        }
+        
+        for(var j = 0; j < arr.length; j++) {
+            document.write(arr[j] + " ");
+        }
+        document.write("<br>");
+        
+        var exotic = [];
+        var k = 1;
+       
+        for(i = 0; i < k; i++) {
+            exotic[i] = i;
+            if(i > 1) {
+                exotic[i] = exotic[i - 1] + exotic[i - 2];
+            }
+            if(exotic[i] >= 2000) {
+                exotic.pop();
+                break;
+            }
+            k++;
+        }
+        
+         for(var j = 0; j < exotic.length; j++) {
+            document.write(exotic[j] + " ");
+        }
+        
+        document.write("<br>");
+        
+        var exs = [0, 1];
+        var max = 2000;
+        var f = 1;
+        for(var i  = exs.length; f < max; i++) {
+            exs[i] = f;
+            f = exs[i] + exs[i - 1];
+        }
+        for(var j = 0; j < exs.length; j++) {
+            document.write(exs[j] + " ");
+        }
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Рекурсивная функция</title>
+</head>
+<body>
+    <script>
+    
+       function fun(n1, n2, counter, acd) {
+           if(counter === undefined) {
+               counter = 1;
+           }
+           if(acd === undefined) {
+               acd = n1;
+           }
+           var result = n1 * acd;
+           if(counter < n2-1) {
+               counter++;
+               
+               document.write(result + " "  + n2 + " " + counter + " " + acd + "<br>");
+               return fun(result, n2, counter, acd);
+           }
+           return (result);
+       };
+        
+        
+        document.write(fun(2, 8));
+        
+    </script>
+</body>
+</html>

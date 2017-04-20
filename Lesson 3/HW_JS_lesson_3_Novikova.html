@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rhombus</title>
+    <style>
+        body {
+            font-size: 30px;
+            line-height: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        var z = 1;
+        var maxHeight = prompt("Введите значение для размера ромба. Внимание: только нечетные числа. Ромб размером более 33-х точек не поместится в браузере окна");
+        while(z = 1){
+            if(maxHeight % 2) {
+                z++;
+                break;
+            }
+            else {
+                maxHeight = prompt("Введенное число четное. Необходимо ввести нечетное число. Повторите ввод");
+            }
+        }
+        var medium = ((maxHeight - 1) / 2 + 1);
+        var d = medium;
+        var row = 1;
+        var spc = "\u00A0\u00A0";
+        
+        for(var a = 1; a <= maxHeight; a++) {
+    
+            if(row <= medium) {
+                for(var b = 1; b < d; b++) {
+                    document.write(spc);
+                }
+                for(var j = 1; j < a + row;  j++) {
+                    document.write("*");
+                    b++;
+                }
+            
+                for(var b; b <= maxHeight; b++) {
+                    document.write(spc);
+                }
+                d--;
+            }
+            else {
+                if(row == medium + 1) {
+                    d = 1;
+                }
+                
+                for(b = 0; b < d; b++) {
+                    document.write(spc);
+                }
+                
+                for(var j = 1; j <= (maxHeight - d * 2);  j++) {
+                    document.write("*");
+                    b++;
+                }
+                for(var b; b < maxHeight; b++) {
+                    document.write(spc);
+                }
+                d++;
+            }
+            document.write("<br>");
+            row++;
+            }
+             
+    </script>
+    
+</body>
+</html>

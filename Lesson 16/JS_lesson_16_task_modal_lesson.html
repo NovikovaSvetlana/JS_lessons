@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="JS_lesson_16_task_modal_lesson.css">
+    <script src="JS_lesson_16_task_modal_lesson.js"></script>
+</head>
+<body>
+    <div class="main">
+    <div class="item">
+	    <figure>
+	        <img src="https://www.interesniy.kiev.ua/wp-content/uploads/2014/01/original1.png" alt="Киево-Печерская Лавра">
+	        <figcaption>Киев</figcaption>
+        </figure>
+        <button class="info">Show info</button>
+    </div>
+    <div class="item">
+	    <figure>
+	        <img src="http://pochaiv.pp.ua/wp-content/uploads/2016/01/1-1.jpg" alt="Почаевская Лавра">
+	        <figcaption>Почаев</figcaption>
+        </figure>
+        <button class="info">Show info</button>
+    </div>
+    <div class="item">
+	    <figure>
+	        <img src="http://www.segodnya.ua/img/forall/users/532/53203/new_image5_46.jpg" alt="Святогорская Лавра">
+	        <figcaption>Святогорск</figcaption>
+        </figure>
+        <button class="info">Show info</button>
+    </div>
+  </div>
+
+    <div class="modal">
+	    <img id="modalFoto" src="" alt="">
+	    <div class="info-box">
+		    <p>Описание: <span class="bold">Содержимое атрибута alt</span></p>
+		    <p>Путь: <span class="bold">Содержимое атрибута src</span></p>
+		    <p>Title: <span class="bold">Содержимое элемента figcaption</span></p>
+        </div>
+        <button class="close-btn info">Close</button>
+    </div>
+</body>
+</html>

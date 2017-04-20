@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array Control</title>
+<!--    Опишите функцию, для проверки существования значения в массиве. Функция принимает массив и значение, возвращает булев тип-->
+</head>
+<body>
+    
+    <script>
+        function getDataFromUser(message) {
+            return prompt(message);
+        };
+        
+        var arr = ["BMW","Dawoo","Mazda", "Subaru", "VAZ", "Toyota", "Mitsubihi"];
+        
+        
+        function checkDataInArray() {
+            var dat = getDataFromUser("Введите значение для проверки");
+            var k = 0;
+            
+            /** Не понятно почему не стал работать оператор "in" */
+//            if(dat in arr) {
+//                return true;
+//            }
+//            else {
+//                return false;
+//            }
+            
+            for(var i = 0; i < arr.length; i++) {
+                if(dat == arr[i]) {
+                    return true;
+                }
+                else {
+                    k++;
+                }
+            }
+            if(k == arr.length) {
+                return false;
+            }
+        };
+        
+        document.write(checkDataInArray());
+        
+    </script>
+    
+</body>
+</html>

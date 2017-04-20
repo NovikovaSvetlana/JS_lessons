@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 600px;
+            
+        }
+        div.box {
+            width: 500px;
+            height: 150px;
+            border: 1px solid red;
+        }
+        .one {
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="one" class="box one" style="background-color: green; font-size: 1.2em ">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus harum ipsum, quas delectus praesentium dolorem a mollitia sequi optio provident. Corporis delectus ea quas non voluptatum facere officia officiis, rerum!
+    </div>
+    <div id="two" class="one">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, itaque, ducimus. Quam repellat obcaecati magni placeat, mollitia facere molestiae laborum magnam, excepturi tenetur consectetur veritatis deserunt beatae quasi? Sed, nostrum.
+    </div>
+    <script>
+        var elm1 = document.getElementById("one");
+        var elm2 = document.getElementById("two");
+        
+        elm2.setAttribute("style", elm1.getAttribute("style"));
+        
+        var orig_style = document.getElementById("one").getAttribute("style");
+        elm2.style.cssText =orig_style;
+        
+//        elm1.style.height = "auto";
+//        
+//        elm2.style.overflow = "scrol";
+//        elm2.style.width = "300px";
+        
+        var stylesOfElm1 = getComputedStyle(elm1);
+        
+    </script>
+</body>
+</html>

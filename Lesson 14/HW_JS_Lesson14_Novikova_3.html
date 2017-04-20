@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+     <h3> Задание 3</h3> <!-- РАБОТАЕТ-->
+<!--
+    
+    У вас есть поле для ввода пароля. Ваша задача, каждый введенный символ заменять на случайный, при ввводе. Исходные символы необходимо сохранить.
+-->
+
+    <input type="text">
+    <p id="trueText"> Поле для вывода правильного текста</p>
+
+    <script>
+        var keylist="abcdefghijklmnopqrstuvwxyz123456789"
+        var temp=''
+
+        function generateMusor(plength){
+            temp=''
+            for (i=0;i<plength;i++) {
+                temp+=keylist.charAt(Math.floor(Math.random()*keylist.length));
+            }
+                return temp;
+        };
+        var trueText = "";
+        var falseText = "";
+        
+        function changeText () {
+            var inp = document.getElementsByTagName("input")[0];
+            var inpLength = inp.value.length;
+            
+            for (var i = inpLength - 1; i <= inpLength; i++) {  
+                var text = document.getElementsByTagName("input")[0].value; 
+                if (i == inpLength) {
+                trueText = trueText + text.charAt(inpLength-1);
+                falseText = falseText + generateMusor(1);
+                }
+            }
+            this.value = falseText;
+            document.getElementById("trueText").innerHTML = trueText;
+        };
+        window.onload = function() {
+            document.getElementsByTagName("input")[0].addEventListener("input", changeText);
+        };
+    </script>
+
+</body>
+</html>

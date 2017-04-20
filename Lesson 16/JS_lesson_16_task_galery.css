@@ -1,0 +1,33 @@
+.gallery {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 0 auto;
+    width: 800px;
+}
+.big-wrap {
+    float: left;
+    width: 600px;
+    height: 600px;
+    background-color: aqua;
+}
+.small-wrap {
+    width: 180px;
+    margin-left: 620px;
+    
+}
+.pic-wrap {
+    width: 120px;
+    height: 116px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.pic-wrap:last-child {
+    margin-bottom: 0;
+}
+.pic {
+    width: 100%;
+    margin-bottom: 5px;
+}
+.pic-wrap.active {
+    border: 2px solid red;
+}

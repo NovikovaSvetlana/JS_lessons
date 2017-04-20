@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+<!--
+    Напишите миниигру, угадай число.
+Получите число с помощью генератора случайных чисел, и получите от пользователя число, затем сравните введенный результат с полученным, если разница будет в пределах 10, выведите сообщение «горячо», если разница будет в пределах 20, выведите «тепло», в пределах 30, выведите «Холодно», и начните сначала(без изменения числа) пока не будут израсходованы все попытки, если больше 30, закончите игру, и выведите «вы не угадали».
+Количество попыток передавайте аргументом при запуске игры.
+Подзадача.
+Измените игру, теперь вы загадываете, а компьютер угадывает, результаты (какое число загадано и в какой интервал попал) выводите в консоль.
+-->
+<script type="text/javascript" src="HW_JS_Lesson7_Novikova_5.js"></script>
+</head>
+<body>
+    
+    <script>
+        var test = 5;
+        var rand = getRandomNumber();
+        
+        for(var i = 0; i < test; i++) {
+            var number = getDataFromUser("Введите число до 100");
+            var numberControl = isNumber(number);
+            number = numberConrolAction(number);
+             document.write("Попытка: " + rand + "   " + number + "<br>");
+            var delta = Math.abs(rand - number);
+            
+            if(delta > 30) {
+                document.write("Вы замерзли. Игра окончена");
+                break;
+            }
+            else if(delta > 20 && delta <= 30) {
+                 alert("Холодно" + rand);
+                /* Для контроля операций оставила число с определением Холодно */
+            }
+            else if(delta > 10 && delta <= 20) {
+                 alert("Тепло");
+            }
+            else if(delta != 0 && delta <= 10) {
+                alert("Горячо");
+            }
+            else if(delta == 0) {
+                document.write("Вы победили. Правильное число: " + number);
+                i = test;
+            }
+        }
+        
+        if(i == test + 1) { 
+        }
+        else if(delta <30) {
+            document.write("Попытки закончились. Вы проиграли");
+        }
+        
+    </script>
+    
+</body>
+</html>

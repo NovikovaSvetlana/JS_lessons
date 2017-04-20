@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math, String</title>
+</head>
+<body>
+    <script>
+        var z = Math.random();
+            z = z * 100;
+            z = Math.round(z);
+        document.write(z, "<br>");
+        var x = Math.ceil(2.4); //округляем вверх
+        var y = Math.floor(3.6); //округляем вниз
+        document.write(x, y, "<br>");
+        var a = Math.min(10, 15, -5);
+        document.write(a, "<br>");
+        var b = Math.sqrt(64);
+        var c = Math.pow(3, 2); // квадрат числа 3 вызываем
+        document.write(b, "<br>");
+        document.write(c, "<br>");
+        document.write(Math.PI, "<br>");
+        document.write(Math.E, "<br>");
+        
+        //Strings//
+        var message = "Hello World";
+        message = message.concat("!!!");
+        var lCount = 0;
+        var message2 = ""; 
+        for(var i = 0; i < message.length; i++) {
+            document.write(message.charAt(i), "<br>");
+            document.write(message.charAt(i) + ": " + message.charCodeAt(i), "<br>");
+            if(message.charAt(i) == "l") {
+                lCount++;
+            }
+            if(i % 2 == 1) {
+                message2 += message.charAt(i);
+            }
+        }
+        document.write(message2, "<br>");
+        document.write(lCount);
+        
+        var text = "Hello Universe";
+        var text2 = "";
+        
+        for(var j = 0; j < text.length; j++) {
+            if(j % 2 == 1) {
+            text2 += text.charAt(j) + "\u00A0";
+            }
+        }
+     document.write(text2);
+        
+    </script>
+</body>
+</html>

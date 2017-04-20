@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array 1+1 Exlusive</title>
+<!--    Опишите функцию, которая принимает 2 массива, и возвращает новый массив, состоящий из уникальных значений.-->
+</head>
+<body>
+    <script>
+        var arr1 = ["BMW","Opel","Mazda", "Mersedes", "VAZ", "Skoda"];
+        var arr2 = ["BMW","Dawoo","Mazda", "Subaru", "VAZ", "Toyota", "Mitsubihi"];
+        var arr3 = [];
+        var z = 0;
+        
+        function compareArray() {
+        var k = 0;
+            for(var i = 0; i < arr1.length; i++) {
+                for(var j = 0; j < arr2.length; j++) {
+                    if(arr1[i] == arr2[j]) {
+                        z = 1;
+                        j = arr2.length;
+                    }    
+                }
+                if(j != arr2.length + 1) {
+                    arr3[k] = arr1[i];
+                    /*document.write(arr3[k] + "<br>");*/
+                    k++;
+                }
+            }
+            
+            z = 0;
+            
+            for(var i = 0; i < arr2.length; i++) {
+                for(var j = 0; j < arr1.length; j++) {
+                    if(arr2[i] == arr1[j]) {
+                        z = 1;
+                        j = arr1.length;
+                    }
+                   
+                }
+                if(j != arr1.length + 1) {
+                    arr3[k] = arr2[i];
+                    /*document.write(arr3[k] + "<br>");*/
+                    k++;
+                }
+            }
+            return arr3;
+        };
+        
+        document.write(compareArray());
+    
+    </script>
+</body>
+</html>

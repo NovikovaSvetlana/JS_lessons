@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form-group">
+	    <input type="text" data-max="10" id="inp">
+	    <div class="counter">
+		    <span class="current"></span> <br>
+		    <span class="max"></span>
+	    </div>
+	    <p class="message"></p>
+    </div>
+
+    
+    <script>
+//        Вам необходимо считать количество введенных пользователем символов в текстовое поле, и выводить информацию о текущем количестве символов в поле ввода / ограничении. При превышении лимита выводить сообщение в соответствующий блок
+//        Задачи
+//1.	Описать функцию, которая будет считать количество введенных пользователем символов, и сравнивать их со значением в атрибуте data-max
+//2.	Описать функцию для вывода текущего количества символов в блок .current и для вывода лимита в блок .max (при превышении лимита текст в блоке .current выводить красным цветом)
+//3.	Описать функцию для вывода сообщения в блок .message при превышении лимита символов
+        
+        var count = 0;
+        
+        function countSymbols() {
+            count++;
+            var inp = document.getElementById("inp");
+            var inpLength = inp.value.length;
+            
+            document.getElementsByClassName("current")[0].innerHTML = "Общее число введенных символов: " + count;
+            
+            if (count <= this.dataset.max){              
+                document.getElementsByClassName("max")[0].innerHTML = "Разрешенный лимит символов: " + this.dataset.max + ". Осталось: " + (this.dataset.max - count);
+            }
+            else {
+                var changeColor = document.getElementsByClassName("current")[0];
+                changeColor.style.color = "red";
+                document.getElementsByClassName("message")[0].innerHTML = "Превышено разрешенное число символов: " + this.dataset.max + ". Лимит превышен. Введено: " + count ;
+            }
+            
+        };
+        
+        var elmInput = document.getElementById("inp");
+        elmInput.addEventListener("keypress", countSymbols);
+        
+        
+        
+    </script>
+</body>
+</html>

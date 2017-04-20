@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>разбор предложения</title>
+</head>
+<body>
+    
+    <script>
+    
+        var txt = prompt("Введите фразу для разделения на число слов");
+        var maxLength = txt.length;
+        var spc1, spc2;
+        var j = 1;
+        var k = 0;
+        spc1 = 0;
+        
+        while(txt.charAt(k) == " ") {
+            k++
+        }
+            
+        for(var i = k; i < maxLength; i++) {
+             
+            if(txt.charAt(i) == " ") {
+                spc2 = i;
+                document.write((j + ". " + txt.slice(spc1, spc2)),"<br>");
+                spc1 = spc2;
+                j++;
+            }
+            
+        }
+        document.write((j + ". " + txt.slice(spc1, maxLength)),"<br>")
+        
+        
+    </script>
+    
+</body>
+</html>

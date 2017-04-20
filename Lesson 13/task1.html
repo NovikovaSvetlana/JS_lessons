@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.wrap:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.box{
+			float: left;
+			width: 50px;
+			height: 50px;
+			box-sizing: border-box;
+		}
+		.black{
+			background: black;
+		}
+		.red{
+			border:1px solid red;
+		}
+		.hide{
+			display: none;
+		}
+        .spoiler-wrap{
+            width: 500px;
+            border: 1px solid black;
+        }
+        .spl2{
+            transition: height 10s ease;
+            overflow: hidden;
+        }
+        .spl2.hide{
+            height: 0;
+        }
+	</style>
+	<!-- 
+		1. Опишите функцию, которая для каждого 2 блока добавит класс red
+		2. Опишите функцию, для добавлению нового блока, спросите у пользователя с какими классами должен быть создан данный блок. Добавьте блок в элемент с классом wrap
+		3. Опишите функцию которая спрячет все блоки с переданным классом
+	 -->
+</head>
+<body>
+	<div class="wrap">
+		<div class="box black"></div>
+		<div class="box"></div>
+		<div class="box black"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box black"></div>
+		<div class="box"></div>
+	</div>
+	<div class="spoiler-wrap" id="spoiler">
+	    <header class="spl1">
+	        <h3>В траве сидел кузнечик</h3>
+	    </header>
+	    <section class="spl2 hide">
+	        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae ut amet, est, quia in itaque! Architecto soluta, magnam. Nam dolorem nesciunt veritatis a, error eaque distinctio minima accusamus doloribus libero? </p>
+	    </section>
+	</div>
+	
+	<script>
+        function spoiler() {
+            var div = document.getElementById("spoiler");
+            var div2 = div.getElementsByClassName("spl2")[0]; 
+            div2.classList.toggle("hide");
+            
+        };
+        
+        
+        
+        
+        
+//        1. Опишите функцию, которая для каждого 2 блока добавит класс red
+        function addClassRed () {
+            var div = document.getElementsByClassName("box");
+            var collectionBox = div.classList;
+            for(var i = 0; i < div.length; i++) {
+               if(i%2 == 0) { div[i].classList.add("red");
+                            }
+            }
+        };
+        
+//        2. Опишите функцию, для добавлению нового блока, спросите у пользователя с какими классами должен быть создан данный блок. Добавьте блок в элемент с классом wrap
+        
+        function addBlock () {
+            var div = document.getElementsByClassName("wrap")[0];
+            var newClass = "great";
+            var newDiv = document.createElement("div");
+            
+            newDiv.classList.add(newClass);
+            newDiv.classList.add("red");
+            newDiv.classList.add("box");
+            div.appendChild(newDiv);
+        };
+        
+//        3. Опишите функцию которая спрячет все блоки с переданным классом
+        
+        function hideBlocks(cls) {
+            var div = document.getElementsByClassName("box");
+            for(var i = 0; i < div.length; i++) {
+                if(div[i].classList.contains(cls)) {
+                    div[i].classList.add("hide");
+                }
+            }
+            
+        };
+    
+    
+    </script>
+</body>
+</html>

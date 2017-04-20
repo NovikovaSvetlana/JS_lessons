@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math.Random</title>
+<!--    Опишите функцию, для генерации случайных целых чисел, функция должна принимать 2 аргумента (от и до) и возвращать число-->
+</head>
+<body>
+   
+    <script>
+    
+        function getDataFromUser(message) {
+            return prompt(message);
+        };
+    
+        function countNumeral(num) {
+            var numeral = num.toString().length;
+//            document.write(numeral + "<br>");
+            var str = "1";
+        
+            for (var i = 0; i < numeral; i++) {
+            str = str + "0";
+            str = +str;
+            }
+            return str;
+        };
+        
+        function getRandomNumber() {
+            var k = 0;
+            
+            while(k == 0) {
+                var z = Math.round(Math.random() * aToZero);
+                if(z < aTo && z > aFrom) {
+                    return z;
+                    k++;
+                }
+            }
+           
+        };
+        
+        var aFrom = getDataFromUser("Введите значение от ");
+        var aTo = getDataFromUser("Введите значение до");
+        
+        var k1 = 0;
+        while(k1 == 0) {
+            if(aTo < aFrom) {
+                alert("Расчет невозможен, нижняя граница диапазона больше верхней. Введите диапазон данных еще раз")
+            
+                aFrom = getDataFromUser("Повтор ввода. Введите значение от ");
+                aTo = getDataFromUser("Повтор ввода. Введите значение до");
+            }
+            else {
+                k1++;
+            }
+        }
+        
+        var aToZero = countNumeral(aTo);
+        
+        document.write(getRandomNumber());
+        
+    </script>
+    
+</body>
+</html>

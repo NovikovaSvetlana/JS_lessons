@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        input {
+            border: solid 2px black;
+        }
+        .err {
+            border: solid 2px red;
+        }
+        .succ {
+            border: solid 2px green;
+        }
+    </style>
+</head>
+<body>
+    <h3> Задание 1</h3> <!-- РАБОТАЕТ/Но есть ошибка в консоле, но работает-->
+<!--    У вас есть список, каждый элемент списка содержит 2 кнопки: prev и next. При нажатии на соответствующую кнопку вам необходимо удалять предыдущего/следующего соседа-->
+
+    <ul>
+        <li>
+           <button class="prev">Prev1</button>
+           <button class="next">Next1</button>
+        </li>
+        <li>
+           <button class="prev">Prev2</button>
+           <button class="next">Next2</button>
+        </li>
+        <li>
+           <button class="prev">Prev3</button>
+           <button class="next">Next3</button>
+        </li>  
+        <li>
+           <button class="prev">Prev4</button>
+           <button class="next">Next4</button>
+        </li>   
+    </ul>
+    <script>
+        function removeButton() {           
+            var li = document.getElementsByTagName("li");  
+            if(this.classList.contains("prev")) {       
+                if(this.parentNode == li[0]) {
+                    document.write("Удаление невозможно. Нет предыдущего элемента");
+                }
+                else  {
+                    this.parentNode.parentNode.removeChild(this.parentNode.previousElementSibling);
+                }
+            }
+            else {
+                var li = document.getElementsByTagName("li"); 
+                var liCount = document.getElementsByTagName("li").length;
+                if(this.parentNode != li[liCount - 1]) {
+                    this.parentNode.parentNode.removeChild(this.parentNode.nextElementSibling);
+                }
+                else {   
+                    document.write("Удаление невозможно. Нет следующего элемента");
+                }
+            }
+        };
+
+        window.onload = function() {
+            var buttons = document.getElementsByTagName("button");
+            var butLength = buttons.length;
+            for (var i = 0; i <buttons.length; i++) {
+                buttons[i].addEventListener("click", removeButton);
+            }
+        };
+    </script>
+    
+     <h3> Задание 2</h3>
+<!--     У вас есть элемент textarea, инпут, селект и кнопка. Select содержит список тегов, в инпут вводим значение атрибута class, в textarea содержимое элемента. При нажатии на кнопку вам необходимо создать выбранный елемент с введенным классом и содержимым. Каждый созданный элемент должен содержать кнопку delete, при нажатии на которую, элемент должен удаляться-->
+   
+   <textarea>Какой-то текст</textarea>
+   <input type="text">
+   <select>
+       <option>div</option>
+       <option>h3</option>
+       <option>p</option>
+   </select>
+   <button class="create">Create Element</button>
+    
+    <script>
+        function createElement() {
+            var options = document.getElementsByTagName("option");
+            for(var i = 0; i < options.length; i++) {
+                
+            }
+        };
+        window.onload = function() {
+            var create = document.getElementsByClassName("create");
+                create.addEventListener("click", createElement);
+        };
+    </script>
+    
+    <h3> Задание 3</h3>
+<!--
+    
+    У вас есть поле для ввода пароля. Ваша задача, каждый введенный символ заменять на случайный, при ввводе. Исходные символы необходимо сохранить.
+-->
+    
+    
+    <h3> Задание 4</h3>
+    
+<!--    У вас есть форма, для ввода персональных данных. Поля формы: имя, телефон, email, адрес. Так как у пользователя может быть несколько телефонов, email ов и адресов, вам необходимо добавить кнопки еще один телефон/email/адрес. При нажатии на кнопку, вам необходимо добавлять поле. -->
+   
+    <div class="fourTask">
+        <input class="four" type="text"> <br>
+        <input class="four" type="tel"> <button class="more">Телефон +</button> <br>
+        <input class="four" type="email"> <button class="more">Email +</button> <br>
+        <input class="four" type="text"> <button class="more">Address +</button> <br>
+        <p id="four">Поле для вывода сообщения</p>
+    </div>
+    <script>
+        function addData() {
+            var newInput = document.createElement("input");
+            newInput.class = this.previousElementSibling.className;
+            newInput.type = this.previousElementSibling.nodeType;
+            var divFourTask = document.getElementsByClassName("fourTask")[0];
+            divFourTask.appendChild(newInput);
+            document.getElementById("four").innerHTML = "Ведите дополнительный" + this.type 
+        };
+        
+        window.onload = function() {
+            var btnMore = document.getElementsByClassName("more");
+            for (var i = 0; i < btnMore.length; i++) {
+                btnMore[i].addEventListener("click", addData);
+            }
+        };
+    
+    </script>
+        
+    
+    <h3> Задание 5</h3> <!-- РАБОТАЕТ-->
+    
+<!--    У вас есть 2 инпута для ввода пароля и кнопка, ваша задача, после нажатия на кнопку, проверять соответсвие введнных данных. В случае ошибки, выведите сообщение, и сделайте бордер у инпутов красным, при успешном вводе, также выводите сообщение, и бордер сделайте зеленым-->
+    
+    <input class="five" type="password">
+    <input class="five" type="password">
+    <button class="btn">Click</button>
+    <script>
+        function checkContent () {
+            var input = document.getElementsByClassName("five");
+            for (var i = 0; i < input.length; i++) {
+                if (input[i].classList.contains("succ")) {
+                    input[i].classList.remove("succ");
+                }
+                if (input[i].classList.contains("err")) {
+                    input[i].classList.remove("err");
+                }
+            }
+            if (input[0].value == input[1].value) {
+                input[0].classList.add("succ");
+                input[1].classList.add("succ");
+            }
+            else {
+                input[0].classList.add("err");
+                input[1].classList.add("err");
+                 }
+        }
+        window.onload = function() {
+            document.getElementsByClassName("btn")[0].addEventListener("click", checkContent);
+        }
+    
+    </script>
+    
+
+    <h3> Задание 6</h3> <!-- РАБОТАЕТ/СПИСАНО-->
+    
+<!--    У вас есть input type=password, ваша задача, реализовать кнопку, при нажатии (и удержании) которой, пользователь увидит введеные символы, при отпускании  кнопки, символы должны быть скрыты-->
+
+    <input type="password">
+    <button id="specialButton">Click</button>
+
+    <script>
+
+        function openData() {
+           var  inp = this.previousElementSibling;
+            inp.setAttribute("type", "text");
+        };
+        function closeData() {
+            var  inp = this.previousElementSibling;
+            inp.setAttribute("type", "password");
+        };
+        
+        window.onload = function() {
+            document.getElementById("specialButton").addEventListener("mousedown", openData);
+            document.getElementById("specialButton").addEventListener("mouseup", closeData);
+        };
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<!--
+    Вам необходимо описать объект автомобиль со свойствами: модель, объем двигателя, цвет, пробег, уровень износа, надежность.
+Также должны быть методы, запуск/стоп двигателя, и движение.
+Движение не может быть осуществлено с выключенным двигателем. 
+Метод «движение» принимает число, и должен обновлять значение «пробег». Также при движении нам необходимо изменять «износ». Изначально износ равен 0, при достижении порогового значения (100), движение не возможно, как и запуск двигателя. Износ меняем по формуле объем двигателя * пробег / надежность
+-->
+
+</head>
+<body>
+   
+    <script>
+        
+        function calcWear(c, m, r) {
+            var wearNew = (c * m) / r;
+            return wearNew;
+        };
+        
+        function auto(model, capacity, color, mileage, wear, reliability) {
+//            this.model = model;
+//            this.capacity = capacity;
+//            this.color = color;
+//            this.mileage = mileage;
+//            this.wear = wear;
+//            this.reability = reliability;
+            /* Не поняла когда необходимо успользовать дополнительную записть присвоения переменных*/
+            
+            if(mileage == undefined) {
+                mileage = 0;
+            }
+            if(wear == undefined) {
+                wear = 0;
+            }
+            if(reliability == undefined) {
+                reliability = 1;
+            }
+            var move = 0;
+            
+            this.start = function() {
+                move = 1;
+            }
+            this.stop = function() {
+                move = 0;
+            }
+            this.moving = function(distance) {
+                
+                if(move == 0 && wear < 100) {
+                    document.write("Движение невозможно, двигатель выключен. Запускаю двигатель."  + "<br>");
+                    this.start();
+//                    document.write(move + "<br>");
+                      /* Вывод переменных дял контроля работы */
+                }
+                
+                for(var i = 0; i <= distance; i++) {
+                    var mile = mileage + i;
+                    wear = Math.floor(calcWear(capacity, mile, reliability));
+//                    document.write(mile + " " + wear + "<br>");                           /* Вывод переменных дял контроля работы */
+                    
+                    if(wear >= 100) {
+                        document.write("Движение дальше невозможно. Полный износ двигателя. Двигатель остановлен."  + "<br>");
+                        this.stop();
+                        i = distance + 1;
+                        document.write("До полного износа двигателя машина проехала: " + (mile - mileage) + "km;" + "<br>");
+                        document.write("До места назначения осталось: " + (distance-(mile - mileage)) + "km;" + "<br>");
+                        document.write("Ваш двигатель изношен: " + wear + "%" + "<br>");
+                        document.write("Пробег автомобиля: " + mile + "km" + "<br>");
+                    }
+                    if(i == distance) {
+                        document.write("Вы проехали: " + distance + "km;" + "<br>");
+                        document.write("Ваш двигатель изношен: " + wear + "%;" + "<br>");
+                        document.write("Полный пробег автомобиля: " + (mileage + distance) + "km." + "<br>");
+                        this.stop();
+                    }
+                }
+
+        }
+    }
+        
+        var myAuto = new auto("BMW", 1.2, "black");
+        
+        document.write("<b> Тестируем заданную дистанцию без превышения износа: </b>" + "<br>");
+        
+        myAuto.moving(50);
+        
+        document.write("<br>" + "<br>");
+        
+        document.write("<b> Тестируем заданную дистанцию с превышением износа: </b>" + "<br>");
+        
+        myAuto.moving(150);
+        
+    
+    </script>
+    
+</body>
+</html>

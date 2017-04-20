@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        
+        .tooltip {
+            border: 1px solid red;
+/*            margin: 5px;*/
+            padding: 10px;
+            position: absolute;
+/*
+            top: -50%;
+            left: 100%;
+*/
+/*            transform: translate(-50%, -50%);*/
+        }
+    </style>
+</head>
+<body>
+    
+    <button data-action = "tooltip" data-message = "Произвольное сообщение" data-position = "left">Test Element разного размера</button>
+    
+    <script>
+    
+        function messageBox(mes) {
+            var element = mes.target;
+            
+            if(element.dataset.action != "tooltip") {
+                return false
+            }
+            
+            if(element.nextElementSibling.classList.contains("tooltip")) {
+                element.nextElementSibling.classList.remove("tooltip");
+            }
+            else {
+            element.style.position = "relative";
+            var newDiv = document.createElement("div");
+                newDiv.innerHTML = element.dataset.message;
+                newDiv.classList.add("tooltip");
+            var t = 0;
+            var l = 0;
+            switch(element.dataset.position) {
+                case "right":
+                    t = -parseFloat(getComputedStyle(element).height)/2 + 5;
+                    l = parseFloat(getComputedStyle(element).width) + 5; 
+                    break;
+            }
+            newDiv.style.cssText = "top: "+t+"px; left: "+l+"px";  
+            element.appendChild(newDiv);
+            }
+        }
+        
+        document.body.addEventListener("click", messageBox);
+    </script>
+    
+</body>
+</html>

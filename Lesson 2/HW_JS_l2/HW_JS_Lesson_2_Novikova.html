@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+    
+    <script>
+        var x1, x2, action, result;
+        
+        x1 = +prompt("Введите первое число ");
+        x2 = +prompt("Введите второе число ");
+        action = prompt("Введите математическое действие из определенных: *, /, +, -");
+        
+        if(action == "/", x2 == 0) {
+            while(x2 == 0) {
+                x2 = prompt("На ноль делить нельзя, измените второе число ");
+            }
+        }
+        if(action == "*") {
+            result = x1 * x2
+        }
+            else if(action == "/") {
+             result = x1 / x2
+            }
+            else if(action == "+") {
+             result = x1 + x2
+            }
+            else if(action == "-") {
+             result = x1 - x2
+            }
+        else {
+            alert("Неправильно задан формат математического действия. Работа программы завершена. При необходимости проведения расчетных действий, обновите загрузку страницы.")
+        }
+        document.write("Результат заданного действия: "  + result);
+        
+        function getDataFromUser(message) {
+            return prompt(message);
+        }
+        
+        function isNumber(n) {
+            n = +n;
+            if(isNaN(n)) {
+                return false;
+            }
+            return true;
+        }
+        
+        function calcThis() {
+            var x1 = +getDataFromUser("Введите первое число ");
+            var x2 = +getDataFromUser("Введите второе число ");
+            var action = getDataFromUser("Введите математическое действие из определенных: *, /, +, -");
+            
+            if(isNumber(x1) && isNumber(x2)) {
+                document.write("Вы ввели не число");
+                return false;
+            }
+            
+        }
+    </script>
+    
+</body>
+</html>

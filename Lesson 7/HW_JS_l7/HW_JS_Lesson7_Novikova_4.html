@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Age control</title>
+<!--   Опишите функцию, которая спросит возраст пользователя и в зависимости от результата выведет ему разные сообщения. Например, если пользователь ввел 18, выведите ему «добро пожаловать», а иначе выведите «Доступ закрыт»-->
+</head>
+<body>
+    
+    <script>
+    
+        function getDataFromUser(message) {
+            return prompt(message);
+        };
+        
+        function isNumber(n) {
+            n = +n;
+            if(isNaN(n)) {
+                return false;
+            }
+            return true;
+        };
+        
+        function ageControl(n) {
+            if(n < 18) {
+                alert("Доступ невозможен");
+            }
+            else { 
+                alert("Добро пожаловать");
+            }
+        };  
+        
+        var age = +getDataFromUser("Введите свой возраст");
+        var numberControl = isNumber(age);
+        
+        var k1 = 0;
+        while(k1 == 0) {
+            if(numberControl == false) {
+                alert("Контроль невозможен. Вы ввели возраст не числом. Повторите ввод.")
+            
+                age = getDataFromUser("Повтор ввода. Введите возраст, используя цифры");
+                numberControl = isNumber(age);
+            }
+            else {
+                k1++;
+            }
+        }
+        
+        ageControl(age);
+        
+    </script>
+    
+    
+</body>
+</html>

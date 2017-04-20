@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h3> Задание 6</h3> <!-- РАБОТАЕТ/СПИСАНО-->
+    
+<!--    У вас есть input type=password, ваша задача, реализовать кнопку, при нажатии (и удержании) которой, пользователь увидит введеные символы, при отпускании  кнопки, символы должны быть скрыты-->
+
+    <input type="password">
+    <button id="specialButton">Click</button>
+
+    <script>
+
+        function openData() {
+           var  inp = this.previousElementSibling;
+            inp.setAttribute("type", "text");
+        };
+        function closeData() {
+            var  inp = this.previousElementSibling;
+            inp.setAttribute("type", "password");
+        };
+        
+        window.onload = function() {
+            document.getElementById("specialButton").addEventListener("mousedown", openData);
+            document.getElementById("specialButton").addEventListener("mouseup", closeData);
+        };
+
+    </script>
+</body>
+</html>

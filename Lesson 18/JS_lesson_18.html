@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>События. Делегирование и поведение. Всплытие и погружение, а также методы объекта событие.</title>
+    <style>
+        .tab-item.active {
+            border: 2px solid red
+        }
+        .tab-menu-item.active {
+            background: grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab-wrap">
+        <ul class="tab-menu">
+            <li class="tab-menu-item">
+                <a href="#tab1" data-action = "tab">Tab 1</a>
+            </li>
+            <li class="tab-menu-item">
+                <a href="#tab2" data-action = "tab">Tab 2</a>
+            </li>
+            <li class="tab-menu-item">
+                <a href="#tab3" data-action = "tab">Tab 3</a>
+            </li>
+        </ul>
+        <div class="tabs">
+            <div class="tab-item" id="tab1">
+                <div class="tab-item-header">Tab1</div>
+                <div class="tab-item-content">
+                    В траве сидел кузнечик
+                </div>
+            </div>
+            <div class="tab-item" id="tab2">
+                <div class="tab-item-header">Tab2</div>
+                <div class="tab-item-content">
+                    В лесу родилась елочка
+                </div>
+            </div>
+            <div class="tab-item" id="tab3">
+                <div class="tab-item-header">Tab3</div>
+                <div class="tab-item-content">
+                    По долинам и по взгорьям
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        
+        function ShowRightText(hrf) {
+            var element = hrf.target;
+            if(element.dataset.action == "tab") {
+                if(element.tagName =="a") {
+                    element.preventDefault();
+                }    
+            
+            
+            var menu_items = document.getElementsByClassName("tab-menu-item");
+            for (var i = 0; i < menu_items.length; i++) {
+                menu_items[i].classList.remove("active");
+            };
+            var tabs = document.getElementsByClassName("tab-item");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            };
+            
+            var rightHref = hrf.target.getAttribute("href");
+            element.parentElement.classList.add("active");
+            var rightId = element.getAttribute("href").substr(1);
+//            var rightId = "";
+//            for (var i = 1; i < rightHref.length; i++) {
+//                rightId = rightId + rightHref[i];
+//            }
+            var RightText = document.getElementById(rightId);
+            RightText.classList.add("active");
+            }
+        }
+        
+        var wrap = document.getElementsByClassName("tab-wrap")[0];
+        wrap.addEventListener("click", ShowRightText);
+        
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h3> Задание 1</h3> <!-- РАБОТАЕТ/Но есть ошибка в консоле, но работает-->
+<!--    У вас есть список, каждый элемент списка содержит 2 кнопки: prev и next. При нажатии на соответствующую кнопку вам необходимо удалять предыдущего/следующего соседа-->
+
+    <ul>
+        <li>
+           <button class="prev">Prev1</button>
+           <button class="next">Next1</button>
+        </li>
+        <li>
+           <button class="prev">Prev2</button>
+           <button class="next">Next2</button>
+        </li>
+        <li>
+           <button class="prev">Prev3</button>
+           <button class="next">Next3</button>
+        </li>  
+        <li>
+           <button class="prev">Prev4</button>
+           <button class="next">Next4</button>
+        </li>   
+    </ul>
+    <script>
+        function removeButton() {           
+            var li = document.getElementsByTagName("li");  
+            if(this.classList.contains("prev")) {       
+                if(this.parentNode == li[0]) {
+                    document.write("Удаление невозможно. Нет предыдущего элемента");
+                }
+                else  {
+                    this.parentNode.parentNode.removeChild(this.parentNode.previousElementSibling);
+                }
+            }
+            else {
+                var li = document.getElementsByTagName("li"); 
+                var liCount = document.getElementsByTagName("li").length;
+                if(this.parentNode != li[liCount - 1]) {
+                    this.parentNode.parentNode.removeChild(this.parentNode.nextElementSibling);
+                }
+                else {   
+                    document.write("Удаление невозможно. Нет следующего элемента");
+                }
+            }
+        };
+
+        window.onload = function() {
+            var buttons = document.getElementsByTagName("button");
+            var butLength = buttons.length;
+            for (var i = 0; i <buttons.length; i++) {
+                buttons[i].addEventListener("click", removeButton);
+            }
+        };
+    </script>
+</body>
+</html>
+    

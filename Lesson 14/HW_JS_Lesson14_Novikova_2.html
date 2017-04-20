@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .main {
+            height: 100px;
+            width: auto;
+            display: block;
+            border: solid 1px red;
+            background-color: bisque;
+        }
+        .forDelete {
+            background-color: aqua;
+            color: black;
+            border: solid 2px blue;
+        }
+        div {
+            display: block;
+            background-color: black;
+            color: white;
+        }
+        
+        p {
+            color: blue;
+        }
+        
+        h3 {
+            background-color: cadetblue;
+        }
+    
+    </style>
+</head>
+<body>
+    <h3> Задание 2</h3> <!-- РАБОТАЕТ-->
+<!--     У вас есть элемент textarea, инпут, селект и кнопка. Select содержит список тегов, в инпут вводим значение атрибута class, в textarea содержимое элемента. При нажатии на кнопку вам необходимо создать выбранный елемент с введенным классом и содержимым. Каждый созданный элемент должен содержать кнопку delete, при нажатии на которую, элемент должен удаляться-->
+   
+   <textarea>Какой-то текст</textarea>
+   <input type="text" value="class">
+   <select>
+       <option>div</option>
+       <option>h3</option>
+       <option>p</option>
+   </select>
+   <button class="create">Create Element</button> <br>
+   <p id="control">Поле для проверки option</p>
+    
+    <script>
+        function deleteElement() {
+            var removingElement = this.parentNode;
+            var ClearNode = removingElement.parentNode;
+            document.getElementById("control").innerHTML = ClearNode;
+            ClearNode.removeChild(removingElement);
+        };
+        function chooseTag() {
+            var select = document.getElementsByTagName("select")[0];
+            var option = document.getElementsByTagName("option");
+            for(var i = 0; i < option.length; i++) {
+                if(option[i].selected == true)
+                    var tag = option[i].value;
+            }
+            if (tag != undefined) {
+                document.getElementById("control").innerHTML = tag;
+            }
+            return tag;
+        };
+        function createElement() {
+            var div = document.createElement("div");
+            document.body.appendChild(div);
+            div.classList.add("main");
+            
+            var optionElement = document.createElement(chooseTag());
+            
+            var inputClass = document.getElementsByTagName("input")[0].value;
+            optionElement.classList.add(inputClass);
+            var textContent = document.getElementsByTagName("textarea")[0].value;
+            optionElement.textContent = textContent;
+            div.appendChild(optionElement);
+            
+            var button = document.createElement("button");
+            button.classList.add("forDelete");
+            button.textContent = "Delete";
+            div.appendChild(button);
+            button.addEventListener("click", deleteElement);
+            
+        };
+        window.onload = function() {
+            var create = document.getElementsByClassName("create")[0];
+                create.addEventListener("click", createElement);
+            var buttons = document.getElementsByClassName("forDelete");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].addEventListener("click", deleteElement);
+            }
+        };
+    </script>
+</body>
+</html>

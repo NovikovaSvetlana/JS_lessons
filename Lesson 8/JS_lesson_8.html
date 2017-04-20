@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор Случайных чисел</title>
+</head>
+<body>
+    
+    <script>
+        /** 
+        * Данная функция генерирует случайное число в заданном интервале
+        * @param {number} min
+        * @param {number} max
+        * @ return number
+        */
+    function generateNumber(min, max) {
+//        var rand = Math.random();
+//        var result = max - min + 1;
+//        result *= Math.floor(rand);
+//        result += min;
+//        return result;
+        return Math.floor(Math.random()*(max-min) + min);
+    };
+    /**
+    * Создаем массив указанной длинны, заполненный случайными данными
+    * @param {number} length
+    *
+    * @return {array}
+    */
+    function fillArray(length) {
+        var tempArray = [];
+        var i = 0;
+        do {
+            tempArray[i] = generateNumber(20, 40);
+            i++;
+        } while(i < length)
+        return tempArray;
+    };
+       var arr = fillArray(20);
+        document.write(arr + "<br>");
+     
+        makeCount.counter = 0;
+        function makeCount() {
+            
+            return function () {
+                makeCount.counter++;
+                document.write(makeCount.counter + "<br>");
+            }
+        }
+       
+        
+        var c1 = makeCount();
+        c1();
+        c1();
+        c1();
+        
+        var c2 = makeCount();
+        c2();
+        
+        makeCount.counter = 20;
+        c1();
+        c2();
+        
+        var backspace = "-";
+        backspace += "-";
+        
+        document.write(backspace);
+        
+    </script>
+    
+</body>
+</html>
